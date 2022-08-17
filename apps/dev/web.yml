@@ -16,7 +16,7 @@ spec:
       releaseName: web
       values: |
         host: web.k8s-dev.sikademo.com
-        image: registry.sikademo.com/ondrejsika/web:main-3c86d0d7-7
+        image: registry.sikademo.com/ondrejsika/web:main-70621e41-8
   syncPolicy:
     automated:
       prune: true
