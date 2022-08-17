@@ -15,8 +15,9 @@ spec:
     helm:
       releaseName: vaultwarden
       values: |
-        ingress.enabled=true
-        ingress.hostname=vaultwarden.k8s-dev.sikademo.com
+        ingress:
+          enabled: true
+          hostname: vaultwarden.k8s-dev.sikademo.com
   syncPolicy:
     automated:
       prune: true
