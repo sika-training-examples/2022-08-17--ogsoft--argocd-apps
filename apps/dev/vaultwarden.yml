@@ -15,6 +15,7 @@ spec:
     helm:
       releaseName: vaultwarden
       values: |
+        domain: https://vaultwarden.k8s-dev.sikademo.com
         ingress:
           enabled: true
           hostname: vaultwarden.k8s-dev.sikademo.com
