@@ -16,6 +16,8 @@ spec:
       releaseName: ingress-nginx
       values: |
         controller:
+          config:
+            use-proxy-protocol: true
           service:
             type: ClusterIP
           ingressClassResource:
