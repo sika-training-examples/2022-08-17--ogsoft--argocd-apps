@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: counter
+  namespace: argocd
+spec:
+  destination:
+    namespace: counter
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    repoURL: https://github.com/sika-training-examples/2022-08-16--helm-chart--og-soft.git
+    targetRevision: HEAD
+    path: .
+    helm:
+      releaseName: counter
+      values: |
+        replicas: 4
+        host: counter.k8s.sikademo.com
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
