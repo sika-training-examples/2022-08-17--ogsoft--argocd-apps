@@ -23,3 +23,17 @@ spec:
       selfHeal: false
     syncOptions:
       - CreateNamespace=true
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: repo-web2
+  namespace: argocd
+  labels:
+    argocd.argoproj.io/secret-type: repository
+stringData:
+  project: default
+  type: git
+  url: https://gitlab.sikademo.com/ondrejsika/web2.git
+  username: ondrejsika
+  password: asdfasdf
