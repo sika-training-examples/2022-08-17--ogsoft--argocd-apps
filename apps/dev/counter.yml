@@ -15,7 +15,7 @@ spec:
     helm:
       releaseName: counter
       values: |
-        replicas: 2
+        replicas: 10
         host: counter.k8s-dev.sikademo.com
   syncPolicy:
     automated:
