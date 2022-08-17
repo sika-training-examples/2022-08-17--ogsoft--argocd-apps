@@ -9,7 +9,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    repoURL: https://gitlab.sikademo.com/ondrejsika/web2
+    repoURL: https://gitlab.sikademo.com/ondrejsika/web2.git
     targetRevision: HEAD
     path: ./kubernetes/charts/web2
     helm:
