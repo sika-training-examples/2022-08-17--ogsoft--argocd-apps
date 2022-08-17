@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: web2
+  namespace: argocd
+spec:
+  destination:
+    namespace: web2
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    repoURL: https://gitlab.sikademo.com/ondrejsika/web2
+    targetRevision: HEAD
+    path: ./kubernetes/charts/web2
+    helm:
+      releaseName: web2
+      values: |
+        image: registry.sikademo.com/ondrejsika/web2:master-46d979cb-10
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false
+    syncOptions:
+      - CreateNamespace=true
