@@ -15,7 +15,7 @@ spec:
     helm:
       releaseName: web2
       values: |
-        image: registry.sikademo.com/ondrejsika/web2:master-46d979cb-10
+        image: registry.sikademo.com/ondrejsika/web2:master-737e4955-12
   syncPolicy:
     automated:
       prune: true
