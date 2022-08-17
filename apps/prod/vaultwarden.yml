@@ -1,0 +1,38 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: vaultwarden
+  namespace: argocd
+spec:
+  destination:
+    namespace: vaultwarden
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    repoURL: https://github.com/guerzon/vaultwarden.git
+    targetRevision: HEAD
+    path: .
+    helm:
+      releaseName: vaultwarden
+      values: |
+        domain: https://vaultwarden.k8s.sikademo.com
+        ingress:
+          enabled: true
+          hostname: vaultwarden.k8s.sikademo.com
+          additionalAnnotations:
+            cert-manager.io/cluster-issuer: letsencrypt
+          tlsSecret: vaultwarden-tls
+        smtp:
+          host: maildev.sikademo.com
+          from: no-reply@maildev.sikademo.com
+          fromName: "Vault Administrator"
+          username: admin
+          password: password
+          acceptInvalidHostnames: "true"
+          acceptInvalidCerts: "true"
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
