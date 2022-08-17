@@ -21,6 +21,7 @@ spec:
           hostname: vaultwarden.k8s-dev.sikademo.com
           additionalAnnotations:
             cert-manager.io/cluster-issuer: letsencrypt
+          tlsSecret: vaultwarden-tls
         smtp:
           host: maildev.sikademo.com
           from: no-reply@maildev.sikademo.com
